@@ -4,6 +4,7 @@ import com.mewsinsa.auth.jwt.JwtProvider;
 import com.mewsinsa.auth.jwt.controller.dto.LoginRequestDto;
 import com.mewsinsa.auth.jwt.controller.dto.SignUpRequestDto;
 import com.mewsinsa.auth.jwt.domain.JwtToken;
+import com.mewsinsa.auth.jwt.exception.NoTokenException;
 import com.mewsinsa.auth.jwt.service.JwtService;
 import com.mewsinsa.global.response.DetailedStatus;
 import com.mewsinsa.global.response.SuccessResult;
@@ -39,12 +40,10 @@ public class JwtController {
   }
 
   @PostMapping("/logout")
-  public ResponseEntity<SuccessResult> logout(@RequestHeader(value=JwtProvider.ACCESS_HEADER_STRING, required=false) String accessToken) {
-
+  public ResponseEntity<SuccessResult> logout(@RequestHeader(value=JwtProvider.ACCESS_HEADER_STRING, required = false) String accessToken) {
     if(accessToken == null) {
-        throw new IllegalStateException();
+      throw new NoTokenException("access token이 없습니다.");
     }
-
     String actualToken = accessToken.replaceFirst("Bearer ", ""); // Bearer 제거
     Jws<Claims> claimsJws;
     try {
@@ -85,11 +84,9 @@ public class JwtController {
 
 
   @PostMapping("/reissue-access-token")
-  public ResponseEntity<Object> reissueAccessToken(@RequestHeader(value=JwtProvider.REFRESH_HEADER_STRING, required=false) String refreshToken) {
-    if(refreshToken == null) { // 메인페이지로
-      HttpHeaders headers = new HttpHeaders();
-      headers.setLocation(URI.create("/"));
-      return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
+  public ResponseEntity<Object> reissueAccessToken(@RequestHeader(value = JwtProvider.REFRESH_HEADER_STRING, required = false) String refreshToken) {
+    if(refreshToken == null) {
+      throw new NoTokenException("refresh token이 없습니다.");
     }
 
     JwtToken jwtToken = jwtService.reissueAccessToken(refreshToken);

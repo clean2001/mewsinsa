@@ -9,6 +9,8 @@ import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
+
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class AddProductRequestDto {
 
@@ -24,6 +26,8 @@ public class AddProductRequestDto {
   private Long originalPrice;
   @Size(min=1)
   private List<AddProductOptionRequestDto> productOptionList;
+
+  private String productThumbnailImageUrl;
 
 
 
@@ -69,11 +73,12 @@ public class AddProductRequestDto {
     return productOptionList;
   }
 
-
+  public String getproductThumbnailImageUrl() {
+    return productThumbnailImageUrl;
+  }
 
 
   //==Setter==//
-
   public void setProductName(String productName) {
     this.productName = productName;
   }
@@ -94,8 +99,13 @@ public class AddProductRequestDto {
     this.originalPrice = originalPrice;
   }
 
+
+  public void setproductThumbnailImageUrl(String productThumbnailImageUrl) {
+    this.productThumbnailImageUrl = productThumbnailImageUrl;
+  }
+
   public void setProductOptionList(
-      ArrayList<AddProductOptionRequestDto> productOptionList) {
+      List<AddProductOptionRequestDto> productOptionList) {
     this.productOptionList = productOptionList;
   }
 

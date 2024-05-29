@@ -3,6 +3,7 @@ package com.mewsinsa.auth.kakao.controller;
 import com.mewsinsa.auth.jwt.JwtProvider;
 import com.mewsinsa.auth.jwt.controller.dto.AccessTokenResponseDto;
 import com.mewsinsa.auth.jwt.domain.JwtToken;
+import com.mewsinsa.auth.jwt.exception.NonExistentMemberException;
 import com.mewsinsa.auth.jwt.service.JwtService;
 import com.mewsinsa.auth.kakao.controller.dto.KakaoTokenResponseDto;
 import com.mewsinsa.auth.kakao.controller.dto.KakaoUserInfoDto;
@@ -65,15 +66,13 @@ public class KakaoLoginController {
 
       return new ResponseEntity<>(result, HttpStatus.CREATED);
 
-    } else { // 회원 가입으로 리다이렉트
+    } else { // 없는 회원
       Map<String, String> memberInfo = new HashMap<>();
 
       memberInfo.put("name", userInfo.getKakaoAccount().getName());
       memberInfo.put("email", userInfo.getKakaoAccount().getEmail());
 
-      HttpHeaders headers = new HttpHeaders();
-      headers.setLocation(URI.create("/auth/sign-up-page"));
-      return new ResponseEntity<>(memberInfo, headers, HttpStatus.MOVED_PERMANENTLY);
+      throw new NonExistentMemberException("없는 회원입니다.");
     }
   }
 

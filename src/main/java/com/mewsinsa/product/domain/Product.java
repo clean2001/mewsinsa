@@ -14,10 +14,12 @@ public class Product {
   private Long like;
   private Long click;
 
+  private String thumbnailImageUrl;
+
   //==Constructor ==//
 
   public Product(Long productId, String productName, Long brandId, String category, String subcategory,
-      Long price, Long like, Long click) {
+      Long price, Long like, Long click, String thumbnailImageUrl) {
     this.productId = productId;
     this.productName = productName;
     this.brandId = brandId;
@@ -26,10 +28,11 @@ public class Product {
     this.price = price;
     this.like = like;
     this.click = click;
+    this.thumbnailImageUrl = thumbnailImageUrl;
   }
 
   public Product(String productName, Long brandId, String category, String subcategory,
-      Long price, Long like, Long click) {
+      Long price, Long like, Long click, String thumbnailImageUrl) {
     this.productName = productName;
     this.brandId = brandId;
     this.category = category;
@@ -37,6 +40,7 @@ public class Product {
     this.price = price;
     this.like = like;
     this.click = click;
+    this.thumbnailImageUrl = thumbnailImageUrl;
   }
 
 
@@ -73,8 +77,7 @@ public class Product {
     return click;
   }
 
-
-
-
-
+  public String getThumbnailImageUrl() {
+    return thumbnailImageUrl;
+  }
 }

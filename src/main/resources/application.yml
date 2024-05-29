@@ -19,3 +19,6 @@ server:
       force: true
   tomcat:
     uri-encoding: UTF-8
+
+file:
+  dir: /Users/sejeong/Documents/spring/mewsinsa-files/

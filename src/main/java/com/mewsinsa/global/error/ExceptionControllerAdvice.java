@@ -9,6 +9,7 @@ import com.mewsinsa.global.response.DetailedStatus;
 import com.mewsinsa.global.response.FailureResult;
 import com.mewsinsa.global.response.FailureResult.Builder;
 import io.jsonwebtoken.ExpiredJwtException;
+import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.TypeMismatchException;
@@ -125,7 +126,27 @@ public class ExceptionControllerAdvice {
   }
 
 
+  @ExceptionHandler(IOException.class)
+  protected ResponseEntity<FailureResult> handleIOExceptionHandle(IOException e) {
+    FailureResult result = new Builder()
+        .message(e.getMessage())
+        .code(DetailedStatus.INTERNAL_SERER_ERROR.getCode())
+        .status(DetailedStatus.INTERNAL_SERER_ERROR)
+        .build();
+
+    return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+  }
 
 
+  @ExceptionHandler(Exception.class)
+  protected ResponseEntity<FailureResult> handleExceptionHandle(Exception e) {
+    FailureResult result = new Builder()
+        .message(e.getMessage())
+        .code(DetailedStatus.INTERNAL_SERER_ERROR.getCode())
+        .status(DetailedStatus.INTERNAL_SERER_ERROR)
+        .build();
+
+    return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+  }
 
 }
