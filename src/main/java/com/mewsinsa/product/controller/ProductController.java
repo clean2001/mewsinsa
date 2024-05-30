@@ -44,17 +44,19 @@ public class ProductController {
    * @param product 등록하려는 상품 정보
    * @return SuccessResponse
    */
-  @Auth
+//  @Auth
   @PostMapping
   ResponseEntity<SuccessResult> addProduct(
-      @Validated @RequestPart AddProductRequestDto product,
-      @RequestPart MultipartFile thumbnailImage,
-      @RequestParam List<MultipartFile> productImages
+      @Validated @RequestPart(value="product") AddProductRequestDto product,
+      @RequestPart(value="thumbnail", required = false) MultipartFile thumbnailImage,
+      @RequestPart(value="productImages", required = false) List<MultipartFile> productImages
   ) throws IOException {
     // TODO: 썸네일 사진을 스토리지에 저장
     product = productService.saveProductThumbnailImage(thumbnailImage, product);
 
+
     // TODO: 다른 상품 사진들을 스토리지에 저장
+
 
 
     productService.addProduct(product);
