@@ -27,12 +27,12 @@
 
 
 ## ✨ ERD
-![primary_mewsinsa](https://github.com/f-lab-edu/mewsinsa/assets/64718002/2a54f397-f2f3-47cf-89be-4be4fa3e3dbf)
+![primary_mewsinsa](https://private-user-images.githubusercontent.com/64718002/327694326-c3f8cfaf-b96b-4c34-a6b3-ad21c526b5f0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzE5ODkyMzQsIm5iZiI6MTczMTk4ODkzNCwicGF0aCI6Ii82NDcxODAwMi8zMjc2OTQzMjYtYzNmOGNmYWYtYjk2Yi00YzM0LWE2YjMtYWQyMWM1MjZiNWYwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDExMTklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMTE5VDA0MDIxNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThjNTg0MTQ0MWI2MDAwMjFiOTI3NDk5YWQzNWU4ZDA4YzVkNWFhOTc0NmJmYWE3MmM4OWExM2YyY2I2Mjk1MTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.cqYPsTYu3hK0b77OPJr2IGL5HMLboNrG4iSHl7dz1Pc)
 
 
 
 ## ✨  API 명세
-[Wiki API Design 보러가기](https://github.com/f-lab-edu/mewsinsa/wiki/4.-API-Design)
+[Wiki API Design 보러가기](https://github.com/clean2001/mewsinsa/wiki/4.-API-Design)
 
 
 ## ✨  프로젝트 중점 사항
@@ -43,4 +43,4 @@
 
 
 ## 프로젝트 위키
-프로젝트에 대한 자세한 내용은 [Project Wiki](https://github.com/f-lab-edu/mewsinsa/wiki)에서 확인하실 수 있습니다.
+프로젝트에 대한 자세한 내용은 [Project Wiki](https://github.com/clean2001/mewsinsa/wiki)에서 확인하실 수 있습니다.
